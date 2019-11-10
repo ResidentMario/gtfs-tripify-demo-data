@@ -4,6 +4,7 @@ from datetime import datetime
 import warnings
 import time
 import itertools
+import pandas as pd
 
 import gtfs_tripify as gt
 
@@ -16,9 +17,9 @@ PATH_TO_GTFS_ARCHIVE_FILE = os.path.expanduser('~/Downloads/google_transit/stops
 # Before you run the code that follows you will first need to download the data. To do so, visit 
 # http://web.mta.info/developers/data/archives.html in your web browser and click on the "June 2019" link.
 ZipFile(
-    os.path.expanduser(f'{OUTPUT_DIR}/201906.zip')
+    os.path.expanduser(f'{PATH_TO_GTFS_RT_ARCHIVE_FILE}')
 ).extract('20190601.zip', OUTPUT_DIR)
-ZipFile('./data/20190601.zip').extractall(f'{OUTPUT_DIR}/20190601/')
+ZipFile(f'{OUTPUT_DIR}/20190601.zip').extractall(f'{OUTPUT_DIR}/20190601/')
 
 def splitname(name):
     origname = name
